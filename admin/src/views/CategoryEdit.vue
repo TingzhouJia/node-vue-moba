@@ -2,6 +2,11 @@
   <div class="category-edit">
     <h1>{{id?"Edit":"Create"}} Category</h1>
     <el-form label-width="120px" @submit.native.prevent="save">
+         <el-form-item label="parent category name:">
+        <el-select v-model="model.parent">
+            <el-option v-for="item in parent" :key="item._id" :label="item.name" :value="item._id" ></el-option>
+        </el-select>
+      </el-form-item>
       <el-form-item label="category name:">
         <el-input v-model="model.name"></el-input>
       </el-form-item>
@@ -20,7 +25,8 @@ export default {
   },
   data() {
     return {
-      model: {}
+      model: {},
+      parent:[]
     };
   },
   created() {
@@ -30,13 +36,13 @@ export default {
     async save() {
 
       if (this.id) {
-        await this.$http.put(`/categories/${this.id}`);
+        await this.$http.put(`/rest/categories/${this.id}`,this.model);
         this.$router.push("/categories/list");
         this.$message({
           type: "success"
         });
       } else {
-         await this.$http.post("/categories", this.model);
+         await this.$http.post("/rest/categories", this.model);
         this.$router.push("/categories/list");
         this.$message({
           type: "success"
@@ -44,8 +50,12 @@ export default {
       }
     },
     async fetch() {
-      const res = await this.$http.get(`/categories/${this.id}`);
+      const res = await this.$http.get(`/rest/categories/${this.id}`);
       this.model = res.data;
+    },
+    async fetchParent(){
+        const res=await this.$http.get('/rest/categories')
+        this.parent=res.data
     }
   }
 };

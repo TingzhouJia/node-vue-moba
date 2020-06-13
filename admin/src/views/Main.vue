@@ -9,8 +9,10 @@
           <el-menu-item index="/categories/create">新建分类</el-menu-item>
           <el-menu-item index="/categories/list">展示分类</el-menu-item>
         </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="1-3">选项3</el-menu-item>
+        <el-menu-item-group>
+          <template slot="title">Object</template>
+          <el-menu-item index="/item/create">new object</el-menu-item>
+          <el-menu-item index="/item/list">show object</el-menu-item>
         </el-menu-item-group>
         <el-submenu index="1-4">
           <template slot="title">选项4</template>
