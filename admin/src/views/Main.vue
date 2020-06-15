@@ -5,19 +5,25 @@
       <el-submenu index="1">
         <template slot="title"><i class="el-icon-message"></i>内容管理</template>
         <el-menu-item-group>
-          <template slot="title">分类</template>
-          <el-menu-item index="/categories/create">新建分类</el-menu-item>
-          <el-menu-item index="/categories/list">展示分类</el-menu-item>
+          <template slot="title">Category</template>
+          <el-menu-item index="/categories/create">new category</el-menu-item>
+          <el-menu-item index="/categories/list">show category</el-menu-item>
         </el-menu-item-group>
         <el-menu-item-group>
           <template slot="title">Object</template>
           <el-menu-item index="/item/create">new object</el-menu-item>
           <el-menu-item index="/item/list">show object</el-menu-item>
         </el-menu-item-group>
-        <el-submenu index="1-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="1-4-1">选项4-1</el-menu-item>
-        </el-submenu>
+       <el-menu-item-group>
+          <template slot="title">Article</template>
+          <el-menu-item index="/item/create">new article</el-menu-item>
+          <el-menu-item index="/item/list">show article</el-menu-item>
+        </el-menu-item-group>
+        <el-menu-item-group>
+          <template slot="title">Ads</template>
+          <el-menu-item index="/ads/create">new ads</el-menu-item>
+          <el-menu-item index="/ads/list">show ads</el-menu-item>
+        </el-menu-item-group>
       </el-submenu>
 
     </el-menu>

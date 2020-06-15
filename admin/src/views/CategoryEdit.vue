@@ -30,6 +30,7 @@ export default {
     };
   },
   created() {
+    this.fetchParent()
     this.id && this.fetch();
   },
   methods: {

@@ -64,7 +64,36 @@
           </el-form-item>
         </el-tab-pane>
         <el-tab-pane label="skills" name="skills">
-            <el-button><i class="el-icon-plus" ></i>Add </el-button>
+          <el-button @click="model.skills.push({})">
+            <i class="el-icon-plus"></i>Add
+          </el-button>
+          <el-row type="flex" style="flex-wrap:wrap">
+            <el-col :md="12" v-for="(item,i) in model.skills" :key="i">
+              <el-form-item label="name">
+                <el-input v-model="item.name"></el-input>
+              </el-form-item>
+              <el-form-item label="icon">
+                <el-upload
+                  class="avatar-uploader"
+                  action="http://localhost:3000/admin/api/upload"
+                  :show-file-list="false"
+                  :on-success="res=>$set(item,'icon',res.url)"
+                >
+                  <img v-if="item.icon" :src="item.icon" class="avatar" />
+                  <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                </el-upload>
+              </el-form-item>
+              <el-form-item label="description">
+                <el-input type="textarea" v-model="item.description"></el-input>
+              </el-form-item>
+              <el-form-item label="tips">
+                <el-input type="textarea" v-model="item.tips"></el-input>
+              </el-form-item>
+              <el-form-item>
+                  <el-button size="small" type="danger" @click="model.skills.splice(i,1)">delete</el-button>
+              </el-form-item>
+            </el-col>
+          </el-row>
         </el-tab-pane>
       </el-tabs>
       <el-form-item style="margin-top:1rem">
@@ -88,14 +117,14 @@
 .avatar-uploader-icon {
   font-size: 28px;
   color: #8c939d;
-  width: 178px;
-  height: 178px;
-  line-height: 178px;
+  width: 5rem;
+  height: 5rem;
+  line-height: 5rem;
   text-align: center;
 }
 .avatar {
-  width: 178px;
-  height: 178px;
+  width: 5rem;
+  height: 5rem;
   display: block;
 }
 </style>

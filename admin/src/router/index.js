@@ -6,8 +6,12 @@ import CategoryEdit from '../views/CategoryEdit.vue'
 import CategoryList from '../views/CategoryList.vue'
 import ItemEdit from '../views/ItemEdit.vue'
 import ItemList from '../views/ItemList.vue'
-import HeroEdit from '../views/ItemEdit.vue'
-import HeroList from '../views/ItemList.vue'
+import HeroEdit from '../views/HeroEdit.vue'
+import HeroList from '../views/HeroList.vue'
+import ArticleEdit from '../views/ArticleEdit.vue'
+import ArticleList from '../views/ArticleList.vue'
+import AdsEdit from '../views/AdsEdit.vue'
+import AdsList from '../views/AdsList.vue'
 Vue.use(VueRouter)
 
   const routes = [
@@ -26,7 +30,15 @@ Vue.use(VueRouter)
             
       {path:'/hero/create',component:HeroEdit},
       {path:'/hero/edit/:id',component:HeroEdit,props:true},
-      {path:'/hero/list',component:HeroList}
+      {path:'/hero/list',component:HeroList},
+
+      {path:'/article/create',component:ArticleEdit},
+      {path:'/article/edit/:id',component:ArticleEdit,props:true},
+      {path:'/article/list',component:ArticleList},
+
+      {path:'/ads/create',component:AdsEdit},
+      {path:'/ads/edit/:id',component:AdsEdit,props:true},
+      {path:'/ads/list',component:AdsList}
     ]
   },
   
