@@ -16,7 +16,8 @@ const schema=mongoose.Schema({
         description:{type:String},
         tips:{type:String}
     }],
-    items:[{type:mongoose.SchemaTypes.ObjectId,ref:"Item"}],
+    itemsGood:[{type:mongoose.SchemaTypes.ObjectId,ref:"Item"}],
+    itemsBad:[{type:mongoose.SchemaTypes.ObjectId,ref:"Item"}],
     useageTips:{type:String},
     battleTips:{type:String},
     teamTips:{type:String},
