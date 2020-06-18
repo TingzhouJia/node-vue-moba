@@ -1,9 +1,9 @@
 <template>
     <el-container style="height: 100vh; ">
   <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-    <el-menu router :default-openeds="['1', '3']">
+    <el-menu router :default-openeds="['1',]" unique-opened default-active="$route.path">
       <el-submenu index="1">
-        <template slot="title"><i class="el-icon-message"></i>内容管理</template>
+        <template slot="title"><i class="el-icon-message"></i>content</template>
         <el-menu-item-group>
           <template slot="title">Category</template>
           <el-menu-item index="/categories/create">new category</el-menu-item>
@@ -25,7 +25,15 @@
           <el-menu-item index="/ads/list">show ads</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
+    <el-submenu index="2">
+        <template slot="title"><i class="el-icon-message"></i>admin </template>
+        <el-menu-item-group>
+          <template slot="title">admin</template>
+          <el-menu-item index="/admin/create">new admin</el-menu-item>
+          <el-menu-item index="/admin/list">show admin</el-menu-item>
+        </el-menu-item-group>
 
+      </el-submenu>
     </el-menu>
   </el-aside>
   

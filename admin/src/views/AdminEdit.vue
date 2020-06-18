@@ -1,37 +1,12 @@
 <template>
   <div class="category-edit">
-    <h1>{{id?"Edit":"Create"}} Advertisement</h1>
+    <h1>{{id?"Edit":"Create"}} Admin</h1>
     <el-form label-width="120px" @submit.native.prevent="save">
-      <el-form-item label="ads name:">
-        <el-input v-model="model.name"></el-input>
+      <el-form-item label="admin name:">
+        <el-input v-model="model.username"></el-input>
       </el-form-item>
-      <el-form-item label="advertisement:">
-        <el-button @click="model.items.push({})">
-          add adds
-        </el-button>
-
-        <el-row type="flex" style="flex-wrap:wrap">
-            <el-col :md="24" v-for="(item,i) in model.skills" :key="i">
-              <el-form-item label="URL">
-                <el-input v-model="item.url"></el-input>
-              </el-form-item>
-              <el-form-item label="icon">
-                <el-upload
-                  class="avatar-uploader"
-                  action="http://localhost:3000/admin/api/upload"
-                  :show-file-list="false"
-                  :on-success="res=>$set(item,'image',res.url)"
-                >
-                  <img v-if="item.image" :src="item.image" class="avatar" />
-                  <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-                </el-upload>
-              </el-form-item>
-             
-              <el-form-item>
-                  <el-button size="small" type="danger" @click="model.skills.splice(i,1)">delete</el-button>
-              </el-form-item>
-            </el-col>
-          </el-row>
+      <el-form-item label="admin password:">
+        <el-input v-model="model.password"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" native-type="submit">Save</el-button>
