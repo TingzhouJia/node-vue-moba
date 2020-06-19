@@ -4,4 +4,4 @@ const schema=mongoose.Schema({
     password:{type:String}
     
 })
-module.exports=mongoose.model('Ad',schema)
+module.exports=mongoose.model('Admin',schema)

@@ -13,7 +13,7 @@ app.use('/admin/api/rest/:resource',async(req,res,next)=>{
     next()
 },require('./routes/admin'))
 require('./plugins/mongo')(app)
-
+require('./routes/web/index')(app)
 app.post('/admin/api/upload',upload.single('file'),async(req,res,next)=>{
 
 })

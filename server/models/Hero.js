@@ -26,4 +26,4 @@ const schema=mongoose.Schema({
         description:{type:String}
     }]
 })
-module.exports=mongoose.model('Item',schema)
+module.exports=mongoose.model('Hero',schema)
